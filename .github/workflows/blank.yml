@@ -30,4 +30,4 @@ jobs:
         env: # Set the secret as an input
           SUPER_SECRET: ${{ secrets.DEV_KEY }}
         run: |
-          example-command "$SUPER_SECRET"
+          echo "$SUPER_SECRET"
