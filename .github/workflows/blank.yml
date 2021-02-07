@@ -28,5 +28,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         env: # Set the secret as an input
-          super_secret2: ${{ secrets.DEV_KEY }}
-        run: echo ${{ secrets.DEV_KEY }}
+          SUPER_SECRET: ${{ secrets.DEV_KEY }}
+        run: |
+          example-command "$SUPER_SECRET"
