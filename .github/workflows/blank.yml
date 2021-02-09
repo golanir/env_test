@@ -11,14 +11,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
     env:
-      if: github.ref == 'refs/heads/main'
-      env_name: "development"
+      env_name: ${BRANCH_NAME}
       
     environment: 
-      name: development
+      name: ${{ env.env_name }}
+      
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
         shell: bash
-        run: echo "i'm at d e v e l o p m e n t ${{ env.env_name }} "
+        run: echo "i'm at ${{ env.env_name }} "
