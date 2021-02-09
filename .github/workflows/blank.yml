@@ -31,19 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        if: ${{ env.key1 }} == 'staging'
+        if: ${{ env.key1 }} == 'xxxxx123'
         shell: bash
         run: echo "i'm at s t a g i n g"
-          
-  build_production:
-    runs-on: ubuntu-latest
-    environment: 
-      name: Staging
-    env:
-      key1: ${{ secrets.NEW_KEY }} 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run a one-line script
-        if: ${{ env.key1 }} == 'production'
-        shell: bash
-        run: echo "i'm at p r o d u c t i o n"
