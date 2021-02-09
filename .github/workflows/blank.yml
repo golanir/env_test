@@ -34,7 +34,7 @@ jobs:
         if: ${{ env.key1 }} == 'development'
         shell: bash
         run: |
-          echo "i'm at development"
+          echo "i'm at d e v e l o p m e n t"
           
   build_stageing:
     runs-on: ubuntu-latest
@@ -53,4 +53,4 @@ jobs:
         if: ${{ env.key1 }} == 'staging'
         shell: bash
         run: |
-          echo "i'm at staging"
+          echo "i'm at s t a g i n g"
