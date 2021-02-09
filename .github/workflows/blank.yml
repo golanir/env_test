@@ -29,9 +29,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        if: ${{NEW_KEY}} == 'development'
         shell: bash
         run: |
-          echo ${{ secrets.DEV_KEY }}
+          echo "i'm at development"
           
   build_stageing:
     runs-on: ubuntu-latest
@@ -45,6 +46,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        if: ${{NEW_KEY}} == 'staging'
         shell: bash
         run: |
-          echo ${{ secrets.DEV_KEY }}
+          echo "i'm at staging"
