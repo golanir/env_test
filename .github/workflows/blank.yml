@@ -13,17 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     
     environment: 
-      name: ${{ steps.extract_branch.outputs.branch }}
+      name: ${GITHUB_REF##*/}
     
     env:
-      key: ${{ steps.extract_branch.outputs.branch }}
+      key: ${GITHUB_REF##*/}
       
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-        
       - uses: actions/checkout@v2
       - name: Run a one-line script
         shell: bash
