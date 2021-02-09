@@ -29,7 +29,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: ${{NEW_KEY}} == 'development'
+        if: ${{ secrets.NEW_KEY }} == 'development'
         shell: bash
         run: |
           echo "i'm at development"
@@ -46,7 +46,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: ${{NEW_KEY}} == 'staging'
+        if: ${{ secrets.NEW_KEY }} == 'staging'
         shell: bash
         run: |
           echo "i'm at staging"
