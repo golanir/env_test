@@ -16,7 +16,7 @@ jobs:
       env_name: ${BRANCH_NAME}
       
     environment: 
-      name: ${{ env.env_name }}
+      name: env.env_name
       
     steps:
       - uses: actions/checkout@v2
