@@ -16,10 +16,10 @@ jobs:
       env_name: ${BRANCH_NAME}
       
     environment: 
-      name: env.env_name
+      name: ${env_name}
       
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
         shell: bash
-        run: echo "i'm at ${{ env.env_name }} "
+        run: echo "i'm at ${env_name} "
