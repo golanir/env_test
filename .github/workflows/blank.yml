@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      env_name: ${BRANCH_NAME}
+      env_name: ${{BRANCH_NAME}}
       
     environment: 
       name: $env_name
