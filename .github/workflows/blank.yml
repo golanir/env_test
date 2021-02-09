@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: development
+    env:
+      key1: ${{ secrets.NEW_KEY }} 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: ${{ secrets.NEW_KEY }} == 'development'
+        if: ${{ env.key1 }} == 'development'
         shell: bash
         run: |
           echo "i'm at development"
@@ -38,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: Staging
+    env:
+      key1: ${{ secrets.NEW_KEY }} 
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -46,7 +50,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        if: ${{ secrets.NEW_KEY }} == 'staging'
+        if: ${{ env.key1 }} == 'staging'
         shell: bash
         run: |
           echo "i'm at staging"
