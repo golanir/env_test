@@ -1,40 +1,26 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build_dev:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: 
       name: development
     env:
       key1: ${{ secrets.NEW_KEY }} 
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: Run a one-line script
         if: ${{ env.key1 }} == 'development'
         shell: bash
-        run: |
-          echo "i'm at d e v e l o p m e n t"
+        run: echo "i'm at d e v e l o p m e n t"
           
   build_stageing:
     runs-on: ubuntu-latest
@@ -42,18 +28,12 @@ jobs:
       name: Staging
     env:
       key1: ${{ secrets.NEW_KEY }} 
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: Run a one-line script
         if: ${{ env.key1 }} == 'staging'
         shell: bash
-        run: |
-          echo "i'm at s t a g i n g"
+        run: echo "i'm at s t a g i n g"
           
   build_production:
     runs-on: ubuntu-latest
@@ -61,15 +41,9 @@ jobs:
       name: Staging
     env:
       key1: ${{ secrets.NEW_KEY }} 
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
       - name: Run a one-line script
         if: ${{ env.key1 }} == 'production'
         shell: bash
-        run: |
-          echo "i'm at p r o d u c t i o n"
+        run: echo "i'm at p r o d u c t i o n"
