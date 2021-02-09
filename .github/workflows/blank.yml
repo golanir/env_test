@@ -20,6 +20,6 @@ jobs:
       
     steps:
       - uses: actions/checkout@v2
-      - name: Run a one-line script
+      - name: Run a one-line script 2
         shell: bash
         run: echo "i'm at ${GITHUB_REF##*/} ${{ secrets.NEW_KEY }}"
