@@ -13,24 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: development
-    env:
-      key1: ${{ secrets.NEW_KEY }} 
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        if: ${{ env.key1 }} == 'development'
         shell: bash
-        run: echo "i'm at d e v e l o p m e n t"
+        run: echo "i'm at d e v e l o p m e n t ${{ secrets.NEW_KEY }} "
           
   build_stageing:
     runs-on: ubuntu-latest
     environment: 
-      name: Staging
-    env:
-      key1: ${{ secrets.NEW_KEY }} 
+      name: Prod
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        if: ${{ env.key1 }} == 'development'
         shell: bash
-        run: echo "i'm at s t a g i n g"
+        run: echo "i'm at s t a g i n g ${{ secrets.NEW_KEY }} "
